@@ -9,7 +9,7 @@
         alt=""
       />
       <div class="content_single_card">
-        <h3>Titolo: {{ title }}</h3>
+        <h4>Titolo: {{ title }}</h4>
         <h4>Titolo originale: {{ originalTitle }}</h4>
         <img
           class="flag_image"

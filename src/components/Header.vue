@@ -5,10 +5,14 @@
         <h1>Boolflix</h1>
       </div>
       <div class="nav_form_container">
-        <form>
-          <input type="text" v-model="valueToSearch" />
+        <div class="form">
+          <input
+            type="text"
+            v-model="valueToSearch"
+            @keyup.enter="onClickGenerate"
+          />
           <button type="button" @click="onClickGenerate">Cerca!</button>
-        </form>
+        </div>
       </div>
     </nav>
   </header>
