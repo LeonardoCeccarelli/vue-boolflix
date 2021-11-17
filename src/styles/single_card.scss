@@ -1,0 +1,42 @@
+li.card_element {
+    width: calc(100% / 3);
+    position: relative;
+
+    .single_card_container {
+        width: 100%;
+        height: 100%;
+
+        &:hover .content_single_card {
+            opacity: 1;
+        }
+
+        &:hover .path_image {
+            filter: blur(5px);
+        }
+
+        .path_image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: all .3s linear;
+        }
+        .content_single_card {
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            color: white;
+            background-color: rgba($color: #000000, $alpha: 0.8);
+            transition: all .3s linear;
+
+            .flag_image {
+                width: 50px;
+            }
+        }
+
+    }
+}

@@ -23,7 +23,7 @@ export default {
     return {
       listMovies: [],
       listSeries: [],
-      apiKey: "66da9c9715a8aa6ea7123977e1274068",
+      apiKey: "a34ccfdb321af0e10bee1440af398702",
       apiUrl: "https://api.themoviedb.org/3",
       valueToSearch: "",
     };

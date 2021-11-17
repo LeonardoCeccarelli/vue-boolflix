@@ -9,6 +9,7 @@
       "
       :language="movie.original_language"
       :vote="movie.vote_average"
+      :url="movie.poster_path"
     ></SingleCard>
   </ul>
 </template>

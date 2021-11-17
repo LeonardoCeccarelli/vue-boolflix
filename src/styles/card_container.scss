@@ -1,11 +1,6 @@
 .card_container {
-
-    li {
-        text-align: center;
-        margin: 20px 0;
-
-        img {
-            width: 50px;
-        }
-    }
+    width: 920px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-wrap: wrap;
 }

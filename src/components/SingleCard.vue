@@ -1,12 +1,24 @@
 <template>
-  <li>
-    <h3>Titolo: {{ title }}</h3>
-    <h4>Titolo originale: {{ originalTitle }}</h4>
-    <img
-      :src="require('../assets/' + getRightFlag(language))"
-      alt="flag logo"
-    />
-    <h4>Voto: {{ vote }}</h4>
+  <li class="card_element">
+    <div class="single_card_container">
+      <img
+        class="path_image"
+        :src="
+          url ? defaultPathUrl + url : require('../assets/path-default.png')
+        "
+        alt=""
+      />
+      <div class="content_single_card">
+        <h3>Titolo: {{ title }}</h3>
+        <h4>Titolo originale: {{ originalTitle }}</h4>
+        <img
+          class="flag_image"
+          :src="require('../assets/' + getRightFlag(language))"
+          alt="flag logo"
+        />
+        <h4>Voto: {{ vote }}</h4>
+      </div>
+    </div>
   </li>
 </template>
 
@@ -19,10 +31,12 @@ export default {
     originalTitle: String,
     language: String,
     vote: Number,
+    url: String,
   },
   data() {
     return {
       langFlag: "",
+      defaultPathUrl: "https://image.tmdb.org/t/p/w342",
     };
   },
   methods: {
