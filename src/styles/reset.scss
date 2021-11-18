@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(
+        to right,
+        rgb(50, 50, 50),
+        rgb(100, 100, 100),
+        rgb(134, 134, 134),
+        rgb(173, 173, 173),
+        rgb(134, 134, 134),
+        rgb(100, 100, 100),
+        rgb(50, 50, 50),
+    );
+}
+
 ul {
     list-style: none;
 }

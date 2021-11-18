@@ -2,7 +2,7 @@
 
     nav {
         display: flex;
-        background-color: black;
+        background-color: $darkBg;
 
         .nav_title_container {
             width: 50%;
@@ -10,7 +10,7 @@
             padding-left: 20px;
         
             h1 {
-                color: red;
+                color: $redPrimary;
                 text-transform: uppercase;
             }
         }

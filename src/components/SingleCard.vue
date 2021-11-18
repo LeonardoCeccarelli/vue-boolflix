@@ -9,19 +9,38 @@
         alt=""
       />
       <div class="content_single_card">
-        <h4>Titolo: {{ title }}</h4>
-        <h4>Titolo originale: {{ originalTitle }}</h4>
+        <div class="value">
+          <span class="pre_value">Titolo:</span><br /><span
+            class="title_movie"
+            >{{ title }}</span
+          >
+        </div>
+        <div class="value" v-if="title !== originalTitle">
+          <span class="pre_value">Titolo Originale:</span><br /><span
+            class="title_movie"
+            >{{ originalTitle }}</span
+          >
+        </div>
         <img
           class="flag_image"
           :src="require('../assets/' + getRightFlag(language))"
           alt="flag logo"
         />
-        <h4 v-if="vote">
-          Voto:
-          <span v-for="(star, i) in getRightVote(vote)" :key="i">
+        <div class="value" v-if="vote">
+          <span class="pre_value">Voto:</span>
+          <span
+            class="single_star"
+            v-for="(star, i) in getRightVote(vote)"
+            :key="i"
+          >
             <i :class="star"></i>
           </span>
-        </h4>
+        </div>
+        <div v-if="overview" class="overview_container">
+          <div class="overview">
+            <p>{{ overviewFix(overview) }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </li>
@@ -37,6 +56,7 @@ export default {
     language: String,
     vote: Number,
     url: String,
+    overview: String,
   },
   data() {
     return {
@@ -89,6 +109,13 @@ export default {
         }
       }
       return listStar;
+    },
+    overviewFix(speech) {
+      console.log(speech.length);
+      if (speech.length > 500) {
+        return speech.slice(0, 500) + "...";
+      }
+      return speech;
     },
   },
 };
