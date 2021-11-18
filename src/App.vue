@@ -2,7 +2,7 @@
   <div>
     <Header @switchArray="updateList"></Header>
     <main>
-      <CardContainer :array="listArray"></CardContainer>
+      <CardContainer :mainData="listData"></CardContainer>
     </main>
   </div>
 </template>
@@ -16,14 +16,20 @@ export default {
   components: { Header, CardContainer },
   data() {
     return {
-      listArray: [],
+      listData: [],
     };
   },
   methods: {
     updateList(object) {
-      this.listArray = [];
-      this.listArray.push(...object.movies);
-      this.listArray.push(...object.series);
+      this.listData = [];
+      this.listData.push({
+        title: "Film",
+        array: object.movies,
+      });
+      this.listData.push({
+        title: "Serie Tv",
+        array: object.series,
+      });
     },
   },
 };

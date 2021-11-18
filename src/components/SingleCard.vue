@@ -16,7 +16,12 @@
           :src="require('../assets/' + getRightFlag(language))"
           alt="flag logo"
         />
-        <h4>Voto: {{ vote }}</h4>
+        <h4 v-if="vote">
+          Voto:
+          <span v-for="(star, i) in getRightVote(vote)" :key="i">
+            <i :class="star"></i>
+          </span>
+        </h4>
       </div>
     </div>
   </li>
@@ -35,39 +40,55 @@ export default {
   },
   data() {
     return {
-      langFlag: "",
       defaultPathUrl: "https://image.tmdb.org/t/p/w342",
     };
   },
   methods: {
     getRightFlag(lang) {
+      let langFlag = "";
+
       switch (lang) {
         case "it":
-          this.langFlag = "flag-ita.png";
+          langFlag = "flag-ita.png";
           break;
 
         case "en":
-          this.langFlag = "flag-eng.png";
+          langFlag = "flag-eng.png";
           break;
 
         case "de":
-          this.langFlag = "flag-ger.jpg";
+          langFlag = "flag-ger.jpg";
           break;
 
         case "es":
-          this.langFlag = "flag-esp.png";
+          langFlag = "flag-esp.png";
           break;
 
         case "fr":
-          this.langFlag = "flag-fra.jpeg";
+          langFlag = "flag-fra.png";
           break;
 
         default:
-          this.langFlag = "flag-default.png";
+          langFlag = "flag-default.png";
           break;
       }
 
-      return this.langFlag;
+      return langFlag;
+    },
+    getRightVote(number) {
+      let int = Math.ceil(number / 2);
+      const starFull = "fa fa-star";
+      const starEmpty = "fa fa-star-o";
+      const listStar = [];
+      while (listStar.length < 5) {
+        if (int > 0) {
+          listStar.push(starFull);
+          int--;
+        } else {
+          listStar.push(starEmpty);
+        }
+      }
+      return listStar;
     },
   },
 };
