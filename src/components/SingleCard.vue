@@ -111,7 +111,6 @@ export default {
       return listStar;
     },
     overviewFix(speech) {
-      console.log(speech.length);
       if (speech.length > 500) {
         return speech.slice(0, 500) + "...";
       }

@@ -6,9 +6,14 @@
       </div>
       <div class="nav_form_container">
         <div class="form">
+          <div class="warning_value" :class="warningValue ? 'active' : ''">
+            <i class="fa fa-times" @click="onResetWarning"></i>
+            <p>ATTENZIONE: Devi inserire almeno un carattere!</p>
+          </div>
           <input
             type="text"
             v-model="valueToSearch"
+            placeholder="Film/Serie TV"
             @keyup.enter="onClickGenerate"
           />
           <button type="button" @click="onClickGenerate">Cerca!</button>
@@ -30,11 +35,11 @@ export default {
       apiKey: "a34ccfdb321af0e10bee1440af398702",
       apiUrl: "https://api.themoviedb.org/3",
       valueToSearch: "",
+      warningValue: false,
     };
   },
   methods: {
     onGenerateList(type, value, typeArray) {
-      console.log("chiamata");
       this[typeArray] = [];
       axios
         .get(this.apiUrl + type, {
@@ -54,8 +59,27 @@ export default {
     },
 
     onClickGenerate() {
-      this.onGenerateList("/search/tv", this.valueToSearch, "listSeries");
-      this.onGenerateList("/search/movie", this.valueToSearch, "listMovies");
+      if (this.valueToSearch.trim(" ") === "") {
+        this.warningValue = true;
+        return;
+      }
+
+      this.warningValue = false;
+
+      this.onGenerateList(
+        "/search/tv",
+        this.valueToSearch.trim(" "),
+        "listSeries"
+      );
+      this.onGenerateList(
+        "/search/movie",
+        this.valueToSearch.trim(" "),
+        "listMovies"
+      );
+    },
+
+    onResetWarning() {
+      this.warningValue = false;
     },
   },
 };
