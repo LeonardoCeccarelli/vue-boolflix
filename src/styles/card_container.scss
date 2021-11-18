@@ -4,6 +4,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    &:last-child {
+        margin-bottom: 70px;
+    }
+
     h2.title_section {
         width: 100%;
         text-align: center;

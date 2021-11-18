@@ -38,7 +38,9 @@
         </div>
         <div v-if="overview" class="overview_container">
           <div class="overview">
-            <p>{{ overviewFix(overview) }}</p>
+            <p>
+              <span class="head_trailer">Trama</span>{{ overviewFix(overview) }}
+            </p>
           </div>
         </div>
       </div>
@@ -88,6 +90,50 @@ export default {
           langFlag = "flag-fra.png";
           break;
 
+        case "cs":
+          langFlag = "flag-rep-ceca.png";
+          break;
+
+        case "da":
+          langFlag = "flag-dan.png";
+          break;
+
+        case "et":
+          langFlag = "flag-eston.png";
+          break;
+
+        case "ga":
+          langFlag = "flag-irland.png";
+          break;
+
+        case "hr":
+          langFlag = "flag-croat.png";
+          break;
+
+        case "id":
+          langFlag = "flag-indon.png";
+          break;
+
+        case "is":
+          langFlag = "flag-island.png";
+          break;
+
+        case "ja":
+          langFlag = "flag-japan.png";
+          break;
+
+        case "pl":
+          langFlag = "flag-polon.jpeg";
+          break;
+
+        case "pt":
+          langFlag = "flag-portug.jpeg";
+          break;
+
+        case "ru":
+          langFlag = "flag-russ.jpeg";
+          break;
+
         default:
           langFlag = "flag-default.png";
           break;
@@ -111,8 +157,8 @@ export default {
       return listStar;
     },
     overviewFix(speech) {
-      if (speech.length > 500) {
-        return speech.slice(0, 500) + "...";
+      if (speech.length > 600) {
+        return speech.slice(0, 600) + "...";
       }
       return speech;
     },
