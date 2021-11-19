@@ -47,12 +47,28 @@ li.card_element {
                 font-weight: 300;
             }
 
+            .value_original_title {
+                margin-top: 5px;
+
+                .pre_value {
+                    color: rgb(136, 136, 136);
+                    font-weight: 300;
+                    font-size: 13px;
+                }
+
+                .title_movie {
+                    font-size: 14px;
+                    letter-spacing: 0;
+                }
+            }
+
             .value {
                 margin-top: 10px;
             }
 
             .single_star {
                 cursor: pointer;
+                margin-left: 2px;
             }
 
             .title_movie {
@@ -74,33 +90,33 @@ li.card_element {
                     position: absolute;
                     top: 0;
                     left: 0;
-                }
 
-                p {
-                    color: rgba(136, 136, 136, 0.3);
-                    padding: 20px 10px;
-                    font-weight: bold;
-                    backdrop-filter: none;
-                    border-radius: 10px;
-                    border: 2px solid transparent;
-                    transition: all .6s ease-in-out;
+                    p {
+                        color: rgba(136, 136, 136, 0.3);
+                        padding: 20px 10px;
+                        font-weight: bold;
+                        backdrop-filter: none;
+                        border-radius: 10px;
+                        border: 2px solid transparent;
+                        transition: all .6s ease-in-out;
 
-                    .head_trailer {
-                        text-align: center;
-                        text-transform: uppercase;
-                        display: block;
-                        margin-bottom: 20px;
+                        .head_trailer {
+                            text-align: center;
+                            text-transform: uppercase;
+                            display: block;
+                            margin-bottom: 20px;
+                        }
                     }
-                }
 
-                &:hover p {
-                    color: white;
-                    transform: translateY(-300px);
-                    backdrop-filter: blur(20px);
-                    border: 2px solid $redPrimary;
+                    &:hover p {
+                        color: white;
+                        transform: translateY(-300px);
+                        backdrop-filter: blur(20px);
+                        border: 2px solid $redPrimary;
 
-                    .head_trailer {
-                        color: rgb(177, 177, 177);
+                        .head_trailer {
+                            color: rgb(177, 177, 177);
+                        }
                     }
                 }
             }

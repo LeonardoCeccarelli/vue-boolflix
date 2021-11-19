@@ -15,7 +15,10 @@
             >{{ title }}</span
           >
         </div>
-        <div class="value" v-if="title !== originalTitle">
+        <div
+          class="value_original_title"
+          v-if="title.toLowerCase() !== originalTitle.toLowerCase()"
+        >
           <span class="pre_value">Titolo Originale:</span><br /><span
             class="title_movie"
             >{{ originalTitle }}</span
@@ -28,13 +31,13 @@
         />
         <div class="value" v-if="vote">
           <span class="pre_value">Voto:</span>
-          <span
+          <i
             class="single_star"
             v-for="(star, i) in getRightVote(vote)"
             :key="i"
+            :class="star"
           >
-            <i :class="star"></i>
-          </span>
+          </i>
         </div>
         <div v-if="overview" class="overview_container">
           <div class="overview">
